@@ -1,6 +1,8 @@
 #!/bin/bash
 
 python --version
+
+pwd
 sed -i '' 's/".so"/".dylib"/' tensorflow_text/tftext.bzl
 perl -pi -e "s/(load_library.load_op_library.*)\\.so'/\$1.dylib'/" $(find tensorflow_text/python -type f)
 
