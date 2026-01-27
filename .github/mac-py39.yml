@@ -1,0 +1,35 @@
+name: Python 3.9 on macOS ARM64
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  check-python:
+    # macos-14 is the Apple Silicon (M1) runner
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout specific branch
+        uses: actions/checkout@v4
+        with:
+          # Specify the branch name here
+          ref: '2.20' 
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+          architecture: 'arm64'
+
+      - name: Verify and Print Path
+        run: |
+          echo "Current Branch Architecture:"
+          uname -m
+          
+          echo "Python Path:"
+          which python
+          
+          echo "Full Executable Path:"
+          python -c "import sys; print(sys.executable)"
