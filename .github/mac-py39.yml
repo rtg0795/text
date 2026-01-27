@@ -1,21 +1,16 @@
-name: Python 3.9 on macOS ARM64
+name: Manual Python 3.9 on macOS ARM64
 
 on:
-  push:
-    branches: [ "2.20" ]
-  workflow_dispatch:
+  workflow_dispatch: # This enables manual triggering
 
 jobs:
   check-python:
-    # macos-14 is the Apple Silicon (M1) runner
-    runs-on: macos-14
+    runs-on: macos-14 # Apple Silicon (M1/M2)
 
     steps:
-      - name: Checkout specific branch
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          # Specify the branch name here
-          ref: '2.20' 
+        # By default, this checks out the branch you select when clicking "Run workflow"
 
       - name: Set up Python 3.9
         uses: actions/setup-python@v5
@@ -25,11 +20,11 @@ jobs:
 
       - name: Verify and Print Path
         run: |
-          echo "Current Branch Architecture:"
+          echo "System Architecture:"
           uname -m
           
-          echo "Python Path:"
+          echo "Python Path (which):"
           which python
           
-          echo "Full Executable Path:"
+          echo "Python Executable Path (sys.executable):"
           python -c "import sys; print(sys.executable)"
