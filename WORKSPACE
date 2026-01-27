@@ -77,12 +77,6 @@ http_archive(
     urls = [
         "https://github.com/tensorflow/datasets/archive/v3.2.0.zip",
     ],
-    patch_cmds = [
-        # This deletes any line containing '@pypi_array_record' from all BUILD files
-        "find . -name 'BUILD' -exec sed -i '/@pypi_array_record/d' {} +",
-        # Sometimes it is referenced in .bzl files too
-        "find . -name '*.bzl' -exec sed -i '/@pypi_array_record/d' {} +",
-    ],
 )
 
 http_archive(
