@@ -32,6 +32,6 @@ jobs:
         run: |
           # Ensure the script is executable
           pwd
-          chmod +x .github/workflows/build.sh
+          chmod +x ./build.sh
           # Execute the script
-          .github/workflows/build.sh
+          ./build.sh
