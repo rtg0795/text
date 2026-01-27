@@ -77,6 +77,9 @@ http_archive(
     urls = [
         "https://github.com/tensorflow/datasets/archive/v3.2.0.zip",
     ],
+    repo_mapping = {
+        "@pypi_array_record": "@pypi_array_record", 
+    },
 )
 
 http_archive(
