@@ -45,6 +45,6 @@ jobs:
           # Ensure the script is executable
           pwd
           ls -a
-          chmod +x ./linux_arm64_build.sh
+          chmod +x linux_arm64_build.sh
           # Execute the script
           ./linux_arm64_build.sh
