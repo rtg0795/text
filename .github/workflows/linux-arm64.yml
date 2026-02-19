@@ -44,6 +44,6 @@ jobs:
         run: |
           # Ensure the script is executable
           pwd
-          chmod +x ./build.sh
+          chmod +x ./linux_arm64_build.sh
           # Execute the script
           ./linux_arm64_build.sh
