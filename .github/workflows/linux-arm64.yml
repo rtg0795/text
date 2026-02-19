@@ -31,6 +31,15 @@ jobs:
           echo "Architecture:"
           uname -m
 
+      - name: Set up Bazel (Bazelisk)
+        uses: bazelbuild/setup-bazelisk@v3
+
+      - name: Verify Bazel Installation
+        run: |
+          bazel --version
+          # This confirms the architecture of the bazel binary
+          file $(which bazel)
+
       - name: Run build script
         run: |
           # Ensure the script is executable
