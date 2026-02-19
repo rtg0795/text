@@ -44,7 +44,6 @@ jobs:
         run: |
           # Ensure the script is executable
           pwd
-          cd .github/workflows/ && ls -a
-          chmod +x linux_arm64_build.sh
+          chmod +x .github/workflows/linux_arm64_build.sh
           # Execute the script
-          ./linux_arm64_build.sh
+          bash .github/workflows/linux_arm64_build.sh
