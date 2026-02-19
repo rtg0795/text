@@ -1,0 +1,40 @@
+name: Build 2.20 on Linux ARM64
+
+on:
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  build-job:
+    # Uses the GitHub-hosted Ubuntu ARM64 runner
+    runs-on: ubuntu-24.04-arm64 
+
+    steps:
+      - name: Checkout branch 2.20
+        uses: actions/checkout@v4
+        with:
+          # This forces the action to pull branch 2.20 
+          # regardless of what you select in the "Run workflow" dropdown
+          ref: '2.20'
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          architecture: 'arm64'
+
+      - name: Print Python Info
+        run: |
+          echo "Python Path:"
+          which python
+          echo "Executable Path:"
+          python -c "import sys; print(sys.executable)"
+          echo "Architecture:"
+          uname -m
+
+      - name: Run build script
+        run: |
+          # Ensure the script is executable
+          pwd
+          chmod +x ./build.sh
+          # Execute the script
+          ./linux_arm64_build.sh
