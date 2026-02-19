@@ -39,6 +39,10 @@ jobs:
           bazel --version
           # This confirms the architecture of the bazel binary
           file $(which bazel)
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libstdc++-12-dev
 
       - name: Run build script
         run: |
