@@ -16,10 +16,10 @@ jobs:
           # regardless of what you select in the "Run workflow" dropdown
           ref: '2.20'
 
-      - name: Set up Python 3.13
+      - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.12'
           architecture: 'arm64'
 
       - name: Print Python Info
@@ -45,10 +45,10 @@ jobs:
           sudo apt-get install -y build-essential g++
           sudo apt-get install -y zlib1g-dev libssl-dev python3-dev
 
-      - name: Debug clang configuration
-        run: |
-         clang-18 -v -x c++ /dev/null 2>&1 | grep -i "include"
-         dpkg -L libc++-18-dev | grep include | head -20
+      # - name: Debug clang configuration
+      #   run: |
+      #    clang-18 -v -x c++ /dev/null 2>&1 | grep -i "include"
+      #    dpkg -L libc++-18-dev | grep include | head -20
 
       - name: Run build script
         run: |
