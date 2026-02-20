@@ -12,4 +12,9 @@ source ./oss_scripts/install_bazel.sh
 
 pip install numpy
 
-bazel build oss_scripts/pip_package:build_pip_package
+ bazel build \
+    --repo_env=CC=gcc \
+    --repo_env=CXX=g++ \
+    --repo_env=BAZEL_COMPILER=gcc \
+    --config=release_arm64_linux \
+    oss_scripts/pip_package:build_pip_package
