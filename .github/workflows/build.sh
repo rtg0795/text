@@ -10,6 +10,14 @@ export CC_OPT_FLAGS='-mavx'
 ./oss_scripts/configure.sh
 source ./oss_scripts/install_bazel.sh
 
+# Override the clang settings from TensorFlow's .bazelrc
+cat >> .bazelrc << 'EOF'
+# Override to use GCC for ARM64
+build:release_arm64_linux --repo_env=CC=gcc
+build:release_arm64_linux --repo_env=CXX=g++
+build:release_arm64_linux --repo_env=BAZEL_COMPILER=gcc
+EOF
+
 pip install numpy
 
  bazel build \
