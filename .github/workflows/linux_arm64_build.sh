@@ -12,5 +12,11 @@ source ./oss_scripts/configure.sh
 
 echo "SHARED_LIBRARY_NAME" = "$SHARED_LIBRARY_NAME"
 
-bazel build --config=release_arm64_linux  --verbose_failures oss_scripts/pip_package:build_pip_package 
+ bazel build \
+    --config=linux_arm64 \
+    --config=mkl_aarch64_threadpool \
+    --copt=-flax-vector-conversions \
+    --repo_env=CC=gcc \
+    --repo_env=CXX=g++ \
+    oss_scripts/pip_package:build_pip_package
 
