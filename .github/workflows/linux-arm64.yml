@@ -42,16 +42,12 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential clang
-          sudo apt-get install -y clang-18 libc++-18-dev libc++abi-18-dev
-          sudo apt-get install -y zlib1g-dev libssl-dev python3-dev
+          ssudo apt-get install -y build-essential g++ zlib1g-dev libssl-dev python3-dev
 
       - name: Run build script
         run: |
           # Ensure the script is executable
           pwd
           chmod +x .github/workflows/linux_arm64_build.sh
-          export CC=gcc
-          export CXX=g++
           # Execute the script
           bash .github/workflows/linux_arm64_build.sh
