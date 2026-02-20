@@ -6,7 +6,7 @@ on:
 jobs:
   build-job:
     # Uses the GitHub-hosted Ubuntu ARM64 runner
-    runs-on: ubuntu-24.04-arm 
+    runs-on: ubuntu-22.04-arm 
 
     steps:
       - name: Checkout branch 2.20
