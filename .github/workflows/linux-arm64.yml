@@ -51,5 +51,7 @@ jobs:
           # Ensure the script is executable
           pwd
           chmod +x .github/workflows/linux_arm64_build.sh
+          export CC=gcc
+          export CXX=g++
           # Execute the script
           bash .github/workflows/linux_arm64_build.sh
