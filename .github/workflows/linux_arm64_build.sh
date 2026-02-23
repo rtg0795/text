@@ -16,12 +16,9 @@ echo "SHARED_LIBRARY_NAME" = "$SHARED_LIBRARY_NAME"
 gcc --version
 which gcc
 
-cat >> .bazelrc << 'EOF'
-# Override to use GCC for ARM64
-build:release_arm64_linux --repo_env=CC=gcc
-build:release_arm64_linux --repo_env=CXX=g++
-build:release_arm64_linux --repo_env=BAZEL_COMPILER=gcc
-EOF
 
-bazel build --config=release_arm64_linux --copt=-v oss_scripts/pip_package:build_pip_package --subcommands=pretty_print
+bazel build \
+    --config=release_arm64_linux_clang_local \
+    oss_scripts/pip_package:build_pip_package \
+    --subcommands=pretty_print
 
