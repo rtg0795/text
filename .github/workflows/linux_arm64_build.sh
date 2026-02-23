@@ -22,7 +22,10 @@ sudo ./llvm.sh 18
 ls -l /usr/lib/llvm-18/bin/clang
 /usr/lib/llvm-18/bin/clang --version
 
+echo "display .bazelrc"
+cat .bazelrc
+
 bazel build \
-    --config=release_arm64_linux_clang_local \
+    --config=release_arm64_linux \
     oss_scripts/pip_package:build_pip_package \
     --subcommands=pretty_print
