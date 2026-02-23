@@ -16,6 +16,11 @@ echo "SHARED_LIBRARY_NAME" = "$SHARED_LIBRARY_NAME"
 gcc --version
 which gcc
 
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 18
+ls -l /usr/lib/llvm-18/bin/clang
+/usr/lib/llvm-18/bin/clang --version
 
 bazel build \
     --config=release_arm64_linux_clang_local \
