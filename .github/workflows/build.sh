@@ -25,4 +25,5 @@ pip install numpy
     --repo_env=CXX=g++ \
     --repo_env=BAZEL_COMPILER=gcc \
     --config=release_arm64_linux \
-    oss_scripts/pip_package:build_pip_package
+    oss_scripts/pip_package:build_pip_package \
+    --subcommands=pretty_print
