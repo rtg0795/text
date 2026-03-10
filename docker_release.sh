@@ -15,5 +15,5 @@ echo "SHARED_LIBRARY_NAME = $SHARED_LIBRARY_NAME"
 
 bazel build --config=release_arm64_linux oss_scripts/pip_package:build_pip_package
 
-# comment to trigger actions
+# comment to Trigger actions 
 
