@@ -1,4 +1,4 @@
-name: Linux ARM py310
+name: Linux x86 py313
 
 # Triggers when a Pull Request is opened, updated, or reopened against "2.20"
 on:
@@ -7,9 +7,9 @@ on:
       - '2.20'
 
 jobs:
-  arm-check:
-    name: Build and Test on ARM
-    runs-on: ubuntu-22.04-arm
+  standard-check:
+    name: Build and Test on x86_64
+    runs-on: ubuntu-22.04
 
     steps:
       # Explicitly checks out the "2.20" branch instead of the PR merge commit
@@ -31,8 +31,8 @@ jobs:
         run: |
           echo "Running your specific commands here..."
           echo "Current directory: $(pwd)"
-          PY_VERSION=3.10
-          DOCKER_IMAGE=us-docker.pkg.dev/ml-oss-artifacts-published/ml-public-container/ml-build-arm64:infrastructure-public-image-5d9696b073fb
+          PY_VERSION=3.13
+          DOCKER_IMAGE=us-docker.pkg.dev/ml-oss-artifacts-published/ml-public-container/ml-build:infrastructure-public-image-6b4f681e365f
           docker pull $DOCKER_IMAGE
           docker run --privileged --name tf_text_container -v "$(pwd):/github" -w /github -itd --rm \
             --env BRANCH="2.20" \
