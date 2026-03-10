@@ -7,8 +7,8 @@ on:
       - '2.20'
 
 jobs:
-  arm-check:
-    name: Build and Test on ARM
+  standard-check:
+    name: Build and Test on x86_64
     runs-on: ubuntu-22.04
 
     steps:
