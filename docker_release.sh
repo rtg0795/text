@@ -1,3 +1,5 @@
+set -x
+
 update-alternatives --install \
   /usr/bin/python3 python3 /usr/bin/python${PY_VERSION} 1
 update-alternatives --set python3 /usr/bin/python${PY_VERSION}
