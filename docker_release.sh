@@ -20,11 +20,11 @@ ARCH=$(uname -m)
 case "$ARCH" in
     aarch64)
         echo "Running commands for ARM64 (aarch64)..."
-        bazel build --config=release_cpu_linux oss_scripts/pip_package:build_pip_package
+        bazel build --config=release_arm64_linux oss_scripts/pip_package:build_pip_package
         ;;
     x86_64)
         echo "Running commands for x86 64-bit (x86_64)..."
-        bazel build --config=release_arm64_linux oss_scripts/pip_package:build_pip_package
+        bazel build --config=release_cpu_linux oss_scripts/pip_package:build_pip_package
         ;;
     *)
         # Fallback for any other architecture (e.g., i386, armv7l)
