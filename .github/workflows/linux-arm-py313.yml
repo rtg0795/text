@@ -1,4 +1,4 @@
-name: ARM PR Check
+name: Linux ARM py313
 
 # Triggers when a Pull Request is opened, updated, or reopened against "2.20"
 on:

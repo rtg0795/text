@@ -1,0 +1,44 @@
+name: Linux ARM py39
+
+# Triggers when a Pull Request is opened, updated, or reopened against "2.20"
+on:
+  pull_request:
+    branches:
+      - '2.20'
+
+jobs:
+  arm-check:
+    name: Build and Test on ARM
+    runs-on: ubuntu-22.04-arm
+
+    steps:
+      # Explicitly checks out the "2.20" branch instead of the PR merge commit
+      - name: Checkout "2.20" branch
+        uses: actions/checkout@v4
+        with:
+          ref: '2.20'
+
+      - name: Verify Branch and Architecture
+        run: |
+          echo "Current Architecture:"
+          uname -m # Verifies 'aarch64' (ARM)
+          
+          echo "Current Git Branch/Ref:"
+          git status
+          git log -1 --oneline
+
+      - name: Run Checks
+        run: |
+          echo "Running your specific commands here..."
+          echo "Current directory: $(pwd)"
+          PY_VERSION=3.9
+          DOCKER_IMAGE=us-docker.pkg.dev/ml-oss-artifacts-published/ml-public-container/ml-build-arm64:infrastructure-public-image-5d9696b073fb
+          docker pull $DOCKER_IMAGE
+          docker run --privileged --name tf_text_container -v "$(pwd):/github" -w /github -itd --rm \
+            --env BRANCH="2.20" \
+            --env PY_VERSION=$PY_VERSION \
+            --env BAZEL_VERSION=7.4.1 \
+            $DOCKER_IMAGE \
+            bash
+          docker exec tf_text_container bash -c 'chmod +x docker_release.sh && ./docker_release.sh'
+          docker stop tf_text_container
