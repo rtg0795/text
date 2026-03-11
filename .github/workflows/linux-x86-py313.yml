@@ -4,7 +4,7 @@ name: Linux x86 py313
 on:
   pull_request:
     branches:
-      - '2.20'
+      - '2.21'
 
 jobs:
   standard-check:
@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      # Explicitly checks out the "2.20" branch instead of the PR merge commit
-      - name: Checkout "2.20" branch
+      # Explicitly checks out the "2.21" branch instead of the PR merge commit
+      - name: Checkout "2.21" branch
         uses: actions/checkout@v4
         with:
-          ref: '2.20'
+          ref: '2.21'
 
       - name: Verify Branch and Architecture
         run: |
@@ -35,9 +35,9 @@ jobs:
           DOCKER_IMAGE=us-docker.pkg.dev/ml-oss-artifacts-published/ml-public-container/ml-build:infrastructure-public-image-6b4f681e365f
           docker pull $DOCKER_IMAGE
           docker run --privileged --name tf_text_container -v "$(pwd):/github" -w /github -itd --rm \
-            --env BRANCH="2.20" \
+            --env BRANCH="2.21" \
             --env PY_VERSION=$PY_VERSION \
-            --env BAZEL_VERSION=7.4.1 \
+            --env BAZEL_VERSION=7.7.0 \
             $DOCKER_IMAGE \
             bash
           docker exec tf_text_container bash -c 'chmod +x docker_release.sh && ./docker_release.sh'
