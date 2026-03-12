@@ -32,7 +32,7 @@ jobs:
           echo "Running your specific commands here..."
           echo "Current directory: $(pwd)"
           PY_VERSION=3.13
-          DOCKER_IMAGE=us-docker.pkg.dev/ml-oss-artifacts-published/ml-public-container/ml-build:infrastructure-public-image-6b4f681e365f
+          DOCKER_IMAGE=us-docker.pkg.dev/ml-oss-artifacts-published/ml-public-container/ml-build:latest
           docker pull $DOCKER_IMAGE
           docker run --privileged --name tf_text_container -v "$(pwd):/github" -w /github -itd --rm \
             --env BRANCH="2.21" \
