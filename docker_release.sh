@@ -33,5 +33,4 @@ case "$ARCH" in
         ;;
 esac
 
-# comment to trigger actions
-
+# comment
