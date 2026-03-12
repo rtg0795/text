@@ -17,7 +17,7 @@ absl-py==2.3.1 \
     #   tensorflow
     #   tensorflow-datasets
     #   tensorflow-metadata
-array-record==0.8.1 \
+array-record==0.8.1 ; python_version >= "3.10" \
     --hash=sha256:005fb6f4f4e833b2de1c4e51c620ad6a30a893b46dc168039d9bb31b71466070 \
     --hash=sha256:090d82858a931e3754e1062f5c62c20ae764f3e5f24e79ea9054393804383a8d \
     --hash=sha256:1bf3fcf0a23591667dbd1fe3d32983e8c864781cef5bfd070885ebd3e39e4594 \
@@ -30,7 +30,9 @@ array-record==0.8.1 \
     --hash=sha256:b1d0236d4fa93fc7fa721ba7897a49ee38a758fca4aec79f8824ff4dee1056b8 \
     --hash=sha256:b63f02209bdd3acbb175248d04e0f3f827950eae72f010e6ec14e2732aaf008e \
     --hash=sha256:e5e8e610f59f5a7958dd5672d4b8e505213195594150fdabb7cc0fa725518ed0
-    # via tensorflow-datasets
+    # via
+    #   -r @release_or_nightly/requirements.in
+    #   tensorflow-datasets
 astunparse==1.6.3 \
     --hash=sha256:5ad93a8456f0d084c3456d059fd9a92cce667963232cbf763eac3bc5b7940872 \
     --hash=sha256:c2652417f2c8b5bb325c885ae329bdf3f86424075c4fd1a128674bc6fba4b8e8

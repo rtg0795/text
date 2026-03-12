@@ -2,7 +2,7 @@
 Build rules for open source tf.text libraries.
 """
 load(
-    "@local_xla//third_party/py/rules_pywrap:pywrap.default.bzl", 
+    "@xla//third_party/py/rules_pywrap:pywrap.default.bzl", 
     _pybind_extension = "pybind_extension",
     _pywrap_binaries = "pywrap_binaries",
     _pywrap_library = "pywrap_library"
