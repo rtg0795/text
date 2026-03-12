@@ -35,7 +35,8 @@ py_test(
         "@pypi//numpy:pkg",
         # python/data/ops:dataset_ops tensorflow dep,
         "//tensorflow_text:ops",
-    ] + if_pywrap([
+    ],
+    data = if_pywrap([
         "//tensorflow_text/core/pybinds:pybinds_library",
     ]),
 )

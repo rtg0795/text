@@ -399,7 +399,9 @@ py_test(
     srcs = ["python/ops/fast_sentencepiece_tokenizer_test.py"],
     data = [
         ":python/ops/test_data/fast_sentencepiece.model",
-    ],
+    ] + if_pywrap([
+        "//tensorflow_text/core/pybinds:pybinds_library",
+    ]),
     deps = [
         ":fast_sentencepiece_tokenizer",
         ":tensorflow_text",
@@ -410,9 +412,6 @@ py_test(
         "@release_or_nightly//:tensorflow_pkg",  # tensorflow package dep
         "@release_or_nightly//:tf_keras_pkg",
     ],
-    data = if_pywrap([
-        "//tensorflow_text/core/pybinds:pybinds_library",
-    ]),
 )
 
 py_tf_text_library(
@@ -445,7 +444,9 @@ py_test(
     srcs = ["python/ops/fast_wordpiece_tokenizer_test.py"],
     data = [
         ":python/ops/test_data/fast_wordpiece_tokenizer_model.fb",
-    ],
+    ] + if_pywrap([
+        "//tensorflow_text/core/pybinds:pybinds_library",
+    ]),
     deps = [
         ":tensorflow_text",
         "@absl_py//absl/testing:parameterized",
@@ -459,9 +460,6 @@ py_test(
         # python/ops/ragged:ragged_factory_ops tensorflow dep,
         # python/platform:client_testlib tensorflow dep,
     ],
-    data = if_pywrap([
-        "//tensorflow_text/core/pybinds:pybinds_library",
-    ]),
 )
 
 py_tf_text_library(
@@ -494,7 +492,9 @@ py_test(
     srcs = ["python/ops/phrase_tokenizer_test.py"],
     data = [
         ":python/ops/test_data/phrase_tokenizer_model.fb",
-    ],
+    ] + if_pywrap([
+        "//tensorflow_text/core/pybinds:pybinds_library",
+    ]),
     deps = [
         ":tensorflow_text",
         "@absl_py//absl/testing:parameterized",
@@ -507,9 +507,6 @@ py_test(
         # python/ops/ragged:ragged_factory_ops tensorflow dep,
         # python/platform:client_testlib tensorflow dep,
     ],
-    data = if_pywrap([
-        "//tensorflow_text/core/pybinds:pybinds_library",
-    ]),
 )
 
 py_tf_text_library(
@@ -557,7 +554,9 @@ py_test(
     srcs = ["python/ops/hub_module_splitter_test.py"],
     data = [
         ":test_data_segmenter_hub_module",
-    ],
+    ] + if_pywrap([
+        "//tensorflow_text/core/pybinds:pybinds_library",
+    ]),
     deps = [
         ":ops",
         # python/framework:ops tensorflow dep,
@@ -567,9 +566,6 @@ py_test(
         # python/ops/ragged:ragged_factory_ops tensorflow dep,
         # python/platform:client_testlib tensorflow dep,
     ],
-    data = if_pywrap([
-        "//tensorflow_text/core/pybinds:pybinds_library",
-    ]),
 )
 
 py_library(
@@ -587,7 +583,9 @@ py_test(
     srcs = ["python/ops/hub_module_tokenizer_test.py"],
     data = [
         ":test_data_segmenter_hub_module",
-    ],
+    ] + if_pywrap([
+        "//tensorflow_text/core/pybinds:pybinds_library",
+    ]),
     deps = [
         ":ops",
         # python/framework:ops tensorflow dep,
@@ -597,9 +595,6 @@ py_test(
         # python/ops/ragged:ragged_factory_ops tensorflow dep,
         # python/platform:client_testlib tensorflow dep,
     ],
-    data = if_pywrap([
-        "//tensorflow_text/core/pybinds:pybinds_library",
-    ]),
 )
 
 py_library(
@@ -1652,7 +1647,9 @@ py_test(
         ":python/ops/test_data/fast_sentencepiece.model",
         ":python/ops/test_data/test_oss_model.model",
         ":test_data_segmenter_hub_module",
-    ],
+    ] + if_pywrap([
+        "//tensorflow_text/core/pybinds:pybinds_library",
+    ]),
     deps = [
         ":benchmark_utils",
         ":ops",
@@ -1662,9 +1659,6 @@ py_test(
         # python/framework:dtypes tensorflow dep,
         # python/user_ops:ops tensorflow dep,
     ],
-    data = if_pywrap([
-        "//tensorflow_text/core/pybinds:pybinds_library",
-    ]),
 )
 
 py_test(
