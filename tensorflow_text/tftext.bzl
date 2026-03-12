@@ -12,6 +12,7 @@ def py_tf_text_library(
         name,
         srcs = [],
         deps = [],
+        data = [],
         visibility = None,
         cc_op_defs = [],
         cc_op_kernels = []):
@@ -96,7 +97,7 @@ def py_tf_text_library(
         srcs = srcs,
         srcs_version = "PY2AND3",
         visibility = visibility,
-        data = [":" + binary_name],
+        data = [":" + binary_name] + data,
         deps = deps,
     )
 
