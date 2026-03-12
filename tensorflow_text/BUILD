@@ -298,6 +298,8 @@ py_tf_text_library(
         # python/module tensorflow dep,
         # python/ops:array_ops_stack tensorflow dep,
         # python/ops/ragged:ragged_tensor tensorflow dep,
+    ],
+    data = [
         "//tensorflow_text/core/pybinds:pywrap_fast_bert_normalizer_model_builder",
     ],
 )
@@ -320,10 +322,12 @@ py_test(
         # python/ops/ragged:ragged_factory_ops tensorflow dep,
         # python/platform:client_testlib tensorflow dep,
         "//tensorflow_text:normalize_ops",
-        "//tensorflow_text/core/pybinds:pywrap_fast_bert_normalizer_model_builder",
     ] + if_pywrap([
         "//tensorflow_text/core/pybinds:pybinds_library",
     ]),
+    data = [
+        "//tensorflow_text/core/pybinds:pywrap_fast_bert_normalizer_model_builder",
+    ],
 )
 
 py_library(
@@ -422,6 +426,8 @@ py_tf_text_library(
         # python/ops:array_ops_stack tensorflow dep,
         # python/ops:math_ops tensorflow dep,
         # python/ops/ragged:ragged_tensor tensorflow dep,
+    ],
+    data = [
         "//tensorflow_text/core/pybinds:pywrap_fast_wordpiece_tokenizer_model_builder",
     ],
 )
@@ -468,6 +474,8 @@ py_tf_text_library(
         # python/ops:array_ops_stack tensorflow dep,
         # python/ops:math_ops tensorflow dep,
         # python/ops/ragged:ragged_tensor tensorflow dep,
+    ],
+    data = [
         "//tensorflow_text/core/pybinds:pywrap_phrase_tokenizer_model_builder",
     ],
 )
@@ -1498,6 +1506,8 @@ py_tf_text_library(
         # python/ops/ragged:ragged_conversion_ops tensorflow dep,
         # python/ops/ragged:ragged_string_ops tensorflow dep,
         # python/ops/ragged:ragged_tensor tensorflow dep,
+    ],
+    data = [
         "//tensorflow_text/core/pybinds:pywrap_whitespace_tokenizer_config_builder",
     ],
 )
