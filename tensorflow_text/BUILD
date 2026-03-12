@@ -376,8 +376,10 @@ py_tf_text_library(
         "//tensorflow_text/core/kernels/sentencepiece:sentencepiece_detokenizer_kernel",
     ],
     deps = [
-        "//tensorflow_text/core/pybinds:pywrap_model_converter",
         "@release_or_nightly//:tensorflow_pkg",  # tensorflow package dep
+    ],
+    data = [
+        "//tensorflow_text/core/pybinds:pywrap_model_converter",
     ],
 )
 
